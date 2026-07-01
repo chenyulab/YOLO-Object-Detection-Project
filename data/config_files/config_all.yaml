@@ -1,0 +1,31 @@
+path: C:\Users\multimaster\Desktop\data_to_train_on\all_annotations_2_14_24_with_mirrored
+train: train
+val: test
+names:
+  0: kettle
+  1: cat
+  2: potato
+  3: firetruck
+  4: bulldozer
+  5: car
+  6: ostrich
+  7: frog
+  8: truck
+  9: lobster
+  10: carrot
+  11: colander
+  12: motorcycle
+  13: cup
+  14: dog
+  15: elephant
+  16: spaceship
+  17: pineapple
+  18: banana
+  19: submarine
+  20: boat
+  21: cookie
+  22: stingray
+  23: fork
+  24: helicopter
+  25: duck
+  26: bee

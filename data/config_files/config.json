@@ -1,0 +1,67 @@
+{
+    "constants": {
+        "W": 1280,
+        "H": 720,
+        "CONFIDENCE": 0.5,
+        "NUM_OBJS": 27,
+        "SEED": 42
+    },
+    
+
+
+    "CONFIG_PATH": "yolo_project\\config_inter_15.yaml",    
+
+
+    "dataset_folder": "C:\\Users\\multimaster\\Desktop\\Final_dataset_11_13_23\\11_13_23\\corrected_plus_supp\\0_3_4_5_8_17_18_19",
+    "split" : 0.9,
+
+
+    "training": {
+        "model": "yolov8s.pt",
+        "epochs": 1000,
+        "device": 0,
+        "data": "data\\config_files\\s_11272023.yaml",
+        "project": "Cleaned_dataset_trainings",
+        "name": "blur_thresh_50_supp_0_3_4_5_8_17_18_19"
+    },
+
+    "predict": {
+        "model_path": "C:\\Users\\multimaster\\Desktop\\YOLO-github-11_6_23\\Cleaned_dataset_trainings\\blur_thresh_50_supp_0_3_4_5_8_17_18_19\\weights\\best.pt",
+        "predict_video_path": ".",
+        "predict_image_path": ".",
+        "video_path": "C:\\Users\\multimaster\\Desktop\\Final_dataset_11_13_23\\videos\\exp351_sub2_child\\exp351_sub2_child_original.mp4",
+        "video_path_name_out": "C:\\Users\\multimaster\\Desktop\\Final_dataset_11_13_23\\videos\\exp351_sub2_child\\short_exp351_sub2_child_predicted_corrected_supp_0_3_4_5_8_17_18_19.mp4"
+
+    },
+
+
+    "objects": {
+        "0": "kettle",
+        "1": "cat",
+        "2": "potato",
+        "3": "firetruck",
+        "4": "bulldozer",
+        "5": "car",
+        "6": "ostrich",
+        "7": "frog",
+        "8": "truck",
+        "9": "lobster",
+        "10": "carrot",
+        "11": "colander",
+        "12": "motorcycle",
+        "13": "cup",
+        "14": "dog",
+        "15": "elephant",
+        "16": "spaceship",
+        "17": "pineapple",
+        "18": "banana",
+        "19": "submarine",
+        "20": "boat",
+        "21": "cookie",
+        "22": "stingray",
+        "23": "fork",
+        "24": "helicopter",
+        "25": "duck",
+        "26": "bee"
+    }
+}
