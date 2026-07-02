@@ -133,21 +133,37 @@ class DataMaster():
             return self.save_path
         # copy train split
         for img in tqdm(images[:split_point], desc="Copying images"):
+            img_path = self.dataset_path / 'images' / img.name
+            label_path = self.dataset_path / 'labels' / (Path(img.name).stem + ".txt")
+
+            if not label_path.exists():
+                print(f"[SKIP - TRAIN] Missing label: {img.name}")
+                continue
             try:
-                shutil.copy(self.dataset_path / 'images' / img.name, self.save_path / 'train' / 'images' / img.name)
-                shutil.copy(self.dataset_path / 'labels' / (img.name[:-4]+".txt"), self.save_path / 'train' / 'labels' / (img.name[:-4]+".txt"))
-            except:
-                print(f"Could not copy files: {img}")
+                shutil.copy(img_path, self.save_path / 'train' / 'images' / img.name)
+                shutil.copy(label_path, self.save_path / 'train' / 'labels' / label_path.name)
+            except Exception as e:
+                print(f"[ERROR - TRAIN] {img.name}: {e}")
                 continue
 
         # copy test split
         for img in tqdm(images[split_point:], desc="Copying images"):
-            try:
-                shutil.copy(self.dataset_path / 'images' / img.name, self.save_path / 'val' / 'images' / img.name)
-                shutil.copy(self.dataset_path / 'labels' / (img.name[:-4]+".txt"), self.save_path / 'val' / 'labels' / (img.name[:-4]+".txt"))
-            except:
-                print(f"Could not copy files: {img}")
+            img_path = self.dataset_path / 'images' / img.name
+            label_path = self.dataset_path / 'labels' / (Path(img.name).stem + ".txt")
+
+    
+            if not label_path.exists():
+                print(f"[SKIP - VAL] Missing label: {img.name}")
                 continue
+
+            try:
+                shutil.copy(img_path, self.save_path / 'val' / 'images' / img.name)
+                shutil.copy(label_path, self.save_path / 'val' / 'labels' / label_path.name)
+
+            except Exception as e:
+                print(f"[ERROR - VAL] {img.name}: {e}")
+                continue
+
 
 
         return self.save_path
@@ -210,6 +226,11 @@ class DataMaster():
 
             lbl = os.path.join(self.dataset_path / 'labels', text_name)
 
+            # Try this
+            if not os.path.exists(lbl):
+                print(f"[WARNING] Missing label file (copy skipped): {lbl}")
+                continue
+
             # Split the filename and extension
             img_name_root, img_ext = os.path.splitext(img_name)
             lbl_name_root, lbl_ext = os.path.splitext(img_name)
@@ -243,9 +264,7 @@ class DataMaster():
             lbl_name_bk = Path(lbl_name_root + "_black_white.txt")
 
             self.grayscale_image(img, save_path_images / img_name_bk)
-            if not os.path.exists(lbl):
-                print(f"[WARNING] Missing label file (copy skipped): {lbl}")
-                open(lbl, "w").close()
+
             shutil.copy(lbl, save_path_labels / lbl_name_bk)
 
             ############### blur #############

@@ -27,7 +27,7 @@ parser.add_argument("-v", nargs='?', const=0,type=int)
 
 args = parser.parse_args()
 
-model_path = r"C:\Users\multimaster\Documents\YOLO310\models\JW_6_30_v8m_Augmented\weights\best.pt"
+model_path = r"C:\Users\multimaster\Documents\YOLO_310\models\310_JW_7_1_M1\weights\best.pt"
 predictor = PredictorModel(model_path)
 datamaster = DataMaster(model_path)
 

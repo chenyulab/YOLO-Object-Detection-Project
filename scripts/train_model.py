@@ -55,25 +55,25 @@ Description:
 '''
 
 
-model_path = Path(r"C:\Users\multimaster\documents\YOLO-Object-Detection-Project\data\base_models\yolov8m.pt")
+model_path = Path(r"C:\Users\multimaster\Documents\Github\YOLO-Object-Detection-Project\data\base_models\yolov8m.pt")
 # model_path = Path(r"C:\Users\multimaster\documents\YOLO-Object-Detection-Project\yolo26n.pt")
 
-dataset_path = Path(r"Z:\James\YOLO310_JW\310_JW_6_30_Augmented")
+dataset_path = Path(r"Z:\James\YOLO310_JW\310_JW_7_1_M1")
 class_dict = constants.CLASSES_DICT
 
-project_name = r"C:\Users\multimaster\Documents\YOLO310\models" # name of the project for various trainings, example: "experiment_12"
-training_run_name = "JW_6_30_v8m_Augmented" # name of individual training for a project, example: "train1"
+project_name = r"C:\Users\multimaster\Documents\YOLO_310\models" # name of the project for various trainings, example: "experiment_12"
+training_run_name = "310_JW_7_1_M1" # name of individual training for a project, example: "train1"
 
 def main():
 
     args_dict = {
         "model": model_path,
-        "epochs": 100,
+        "epochs": 200,
         "device": 0, # set to 'cpu' or delete if no GPU
         "project": project_name,
         "name": training_run_name,
-        "mosaic": 0.2,
-        "patience": 10
+        "mosaic": 1,
+        "patience": 20
     }
 
     trainer = Trainer(args=args_dict, dataset_path=dataset_path, class_dict=class_dict, split_data_save_path=dataset_path)

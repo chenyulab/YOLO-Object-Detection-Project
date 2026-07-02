@@ -12,11 +12,14 @@ source "$yolovm_path"
 #   an example can be found under metadata/distributed_processing/comp1.txt
 #                        
 expID=310
-many=true
+many=false
 CHILD=1
 PARENT=0
 
-subID="__20260331_10133"
+# subID="__20251207_10127"
+subID="__20251208_10118"
+# __20251217_10131
+# subID="__20260331_10133"
 # subID="__20260324_10133"
 subList="Z:\James\YOLO310_JW\310_JW_6_30_Augmented\subPredictionList.txt"
 
