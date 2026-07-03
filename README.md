@@ -19,9 +19,9 @@ This project includes:
 1. CLONE THE REPOSITORY
 ------------------------------------------------------------
 
-cd Documents/Github
-git clone https://github.com/chenyulab/YOLO-Object-Detection-Project.git
-cd YOLO-Object-Detection-Project
+cd Documents/Github <br>
+git clone https://github.com/chenyulab/YOLO-Object-Detection-Project.git <br>
+cd YOLO-Object-Detection-Project <br>
 
 ------------------------------------------------------------
 . ENVIRONMENT SETUP
@@ -90,37 +90,23 @@ Run:
 ./run_obj_detection.sh
 
 ------------------------------------------------------------
-PROJECT STRUCTURE
-------------------------------------------------------------
-
-YOLO-Object-Detection-Project/
-│
-├── obj_detector/
-├── scripts/
-│   └── train_model.py
-├── exp_utils.py
-├── run_obj_detection.sh
-├── setup.sh
-└── requirements.txt
-
-------------------------------------------------------------
 TROUBLESHOOTING
 ------------------------------------------------------------
 
-Error: No module named obj_detector
-→ run:
-python -m scripts.train_model
+Error: No module named obj_detector <br>
+→ run: <br>
+python -m scripts.train_model <br>
 
-Missing dependencies (yaml, torch, etc.)
-→ rerun:
-./setup.sh
+Missing dependencies (yaml, torch, etc.) <br>
+→ rerun: <br>
+./setup.sh <br>
 
 ------------------------------------------------------------
 RECOMMENDED WORKFLOW
 ------------------------------------------------------------
 
-git pull
-./setup.sh
-source venv/Scripts/activate
-python -m scripts.train_model
+git pull <br>
+./setup.sh <br>
+source venv/Scripts/activate <br>
+python -m scripts.train_model <br>
 
