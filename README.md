@@ -90,20 +90,6 @@ Run:
 ./run_obj_detection.sh
 
 ------------------------------------------------------------
-PROJECT STRUCTURE
-------------------------------------------------------------
-
-YOLO-Object-Detection-Project/
-│
-├── obj_detector/
-├── scripts/
-│   └── train_model.py
-├── exp_utils.py
-├── run_obj_detection.sh
-├── setup.sh
-└── requirements.txt
-
-------------------------------------------------------------
 TROUBLESHOOTING
 ------------------------------------------------------------
 
