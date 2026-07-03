@@ -3,6 +3,7 @@ from pathlib import Path
 from obj_detector.trainer import Trainer  # Importing the PredictorModel class from your predictor module
 import shutil
 from tqdm import tqdm
+import torch
 
 '''
 Created by Jacob Rivera
@@ -102,25 +103,21 @@ def flatten_dataset(dataset_path: Path):
     print(f"Dataset flattened. Moved {moved} files.")
 def main():
 
-    flatten_dataset(dataset_path)
+    # flatten_dataset(dataset_path)
 
     args_dict = {
         "model": model_path,
         "epochs": 200,
-        "device": 0, # set to 'cpu' or delete if no GPU
-        "project": project_name,
+        "device": 0,
         "name": training_run_name,
         "mosaic": 1,
         "patience": 30,
         "batch": 16,
         "close_mosaic": 50,
-        "iou": 0.7,
-        "scale": 0.5, 
-        "box": 7.5
     }
 
     trainer = Trainer(args=args_dict, dataset_path=dataset_path, class_dict=class_dict, split_data_save_path=dataset_path)
-    trainer.dataMaster.generate_mirror_vars(put_back=True)
+    # trainer.dataMaster.generate_mirror_vars(put_back=True)
     
     trainer.train(show_output=True)
     

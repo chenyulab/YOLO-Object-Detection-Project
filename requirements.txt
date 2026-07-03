@@ -28,9 +28,6 @@ scipy==1.17.0
 setuptools==70.2.0
 six==1.17.0
 sympy==1.14.0
-torch
-torchvision
-torchaudio
 tqdm==4.67.3
 typing_extensions==4.15.0
 ultralytics==8.4.12

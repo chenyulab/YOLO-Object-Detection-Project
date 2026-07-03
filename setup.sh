@@ -53,4 +53,6 @@ python -c "import yaml" || {
     echo "PyYAML missing, reinstalling..."
     python -m pip install pyyaml
 }
+
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 echo "Setup complete"
