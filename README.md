@@ -19,9 +19,9 @@ This project includes:
 1. CLONE THE REPOSITORY
 ------------------------------------------------------------
 
-cd Documents/Github
-git clone https://github.com/chenyulab/YOLO-Object-Detection-Project.git
-cd YOLO-Object-Detection-Project
+cd Documents/Github <br>
+git clone https://github.com/chenyulab/YOLO-Object-Detection-Project.git <br>
+cd YOLO-Object-Detection-Project <br>
 
 ------------------------------------------------------------
 . ENVIRONMENT SETUP
