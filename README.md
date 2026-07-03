@@ -93,20 +93,20 @@ Run:
 TROUBLESHOOTING
 ------------------------------------------------------------
 
-Error: No module named obj_detector
-→ run:
-python -m scripts.train_model
+Error: No module named obj_detector <br>
+→ run: <br>
+python -m scripts.train_model <br>
 
-Missing dependencies (yaml, torch, etc.)
-→ rerun:
-./setup.sh
+Missing dependencies (yaml, torch, etc.) <br>
+→ rerun: <br>
+./setup.sh <br>
 
 ------------------------------------------------------------
 RECOMMENDED WORKFLOW
 ------------------------------------------------------------
 
-git pull
-./setup.sh
-source venv/Scripts/activate
-python -m scripts.train_model
+git pull <br>
+./setup.sh <br>
+source venv/Scripts/activate <br>
+python -m scripts.train_model <br>
 
