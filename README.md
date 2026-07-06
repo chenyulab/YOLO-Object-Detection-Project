@@ -24,18 +24,6 @@ git clone https://github.com/chenyulab/YOLO-Object-Detection-Project.git <br>
 cd YOLO-Object-Detection-Project <br>
 
 ------------------------------------------------------------
-. ENVIRONMENT SETUP
-------------------------------------------------------------
-
-Run:
-
-./setup.sh
-
-Then activate environment:
-
-source venv/Scripts/activate
-
-------------------------------------------------------------
 3. TRAIN A MODEL
 ------------------------------------------------------------
 
