@@ -61,11 +61,11 @@ Description:
 model_path = Path(r"C:\Users\multimaster\Documents\Github\YOLO-Object-Detection-Project\data\base_models\yolov8m.pt")
 # model_path = Path(r"C:\Users\multimaster\documents\YOLO-Object-Detection-Project\yolo26n.pt")
 
-dataset_path = Path(r"Z:\James\YOLO310_JW\FullCVAT_7_3")
+dataset_path = Path(r"C:\Users\multimaster\Documents\YOLO_310\datasets\FullCVAT")
 class_dict = constants.CLASSES_DICT
 
 project_name = r"C:\Users\multimaster\Documents\YOLO_310\models" # name of the project for various trainings, example: "experiment_12"
-training_run_name = "310_CVAT_JW_7_3" # name of individual training for a project, example: "train1"
+training_run_name = "310_CVAT_JW_7_8_AUTO" # name of individual training for a project, example: "train1"
 
 def flatten_dataset(dataset_path: Path):
     images_dir = dataset_path / "images"
@@ -103,8 +103,8 @@ def flatten_dataset(dataset_path: Path):
     print(f"Dataset flattened. Moved {moved} files.")
 def main():
 
-    # flatten_dataset(dataset_path)
-
+    flatten_dataset(dataset_path)
+    
     args_dict = {
         "model": model_path,
         "epochs": 200,
@@ -114,10 +114,59 @@ def main():
         "patience": 30,
         "batch": 16,
         "close_mosaic": 50,
+        "project": project_name
     }
 
+    # args_dict = {
+    #     "model": str(model_path),
+    #     "epochs": 300,
+    #     "device": 0,
+    #     "name": training_run_name,
+    #     "project": project_name,
+
+    #     # Resolution
+    #     "imgsz": 960,
+
+    #     # Training
+    #     "batch": 16,
+    #     "patience": 50,
+    #     "cache": True,
+    #     "workers": 8,
+
+    #     # Optimizer
+    #     "optimizer": "AdamW",
+    #     "lr0": 0.001,
+    #     "lrf": 0.01,
+    #     "cos_lr": True,
+    #     "weight_decay": 0.0005,
+
+    #     # YOLO augmentations
+    #     "mosaic": 0.25,
+    #     "close_mosaic": 40,
+    #     "mixup": 0.0,
+
+    #     # Geometry / scale
+    #     "degrees": 5,
+    #     "translate": 0.10,
+    #     "scale": 0.70,
+    #     "shear": 1.0,
+    #     "perspective": 0.0003,
+
+    #     # Flips
+    #     "fliplr": 0.5,
+    #     "flipud": 0.0,
+
+    #     # Color / lighting
+    #     "hsv_h": 0.01,
+    #     "hsv_s": 0.4,
+    #     "hsv_v": 0.3,
+
+    #     # Output
+    #     "plots": True,
+    # }
+
     trainer = Trainer(args=args_dict, dataset_path=dataset_path, class_dict=class_dict, split_data_save_path=dataset_path)
-    # trainer.dataMaster.generate_mirror_vars(put_back=True)
+    trainer.dataMaster.generate_mirror_vars(put_back=True)
     
     trainer.train(show_output=True)
     
