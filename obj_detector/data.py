@@ -10,6 +10,7 @@ import yaml
 from PIL import Image, ImageOps, ImageDraw, ImageFont, ImageFilter
 import PIL
 import cv2
+import random
 
 from . import constants
 
@@ -202,7 +203,7 @@ class DataMaster():
 
 
     def generate_mirror_vars(self, put_back:bool = True):
-
+        random.seed(42)
         # if user wants mirrored data to not be put with dataset
         if not put_back:
             save_path = self.save_path / 'augmented'
@@ -233,46 +234,53 @@ class DataMaster():
 
             # Split the filename and extension
             img_name_root, img_ext = os.path.splitext(img_name)
-            lbl_name_root, lbl_ext = os.path.splitext(img_name)
+            lbl_name_root, lbl_ext = os.path.splitext(text_name)
 
 
-            ############### x ################
-            img_name_x = Path(img_name_root + "_mirror_acr_x.jpg")
-            lbl_name_x = Path(lbl_name_root + "_mirror_acr_x.txt")
+            # ############### x ################
+            # img_name_x = Path(img_name_root + "_mirror_acr_x.jpg")
+            # lbl_name_x = Path(lbl_name_root + "_mirror_acr_x.txt")
 
-            self.mirror_image_x(img, save_path_images / img_name_x)
-            self.process_text_file(lbl, (save_path_labels / lbl_name_x), 'x')
-
-
-            ############### y ################
-            img_name_y = Path(img_name_root + "_mirror_acr_y.jpg")
-            lbl_name_y = Path(lbl_name_root + "_mirror_acr_y.txt")
-
-            self.mirror_image_y(img, save_path_images / img_name_y)
-            self.process_text_file(lbl, save_path_labels / lbl_name_y, 'y')
+            # self.mirror_image_x(img, save_path_images / img_name_x)
+            # self.process_text_file(lbl, (save_path_labels / lbl_name_x), 'x')
 
 
-            ############### xy ###############
-            img_name_xy = Path(img_name_root + "_mirror_acr_xy.jpg")
-            lbl_name_xy = Path(lbl_name_root + "_mirror_acr_xy.txt")
+            # ############### y ################
+            # img_name_y = Path(img_name_root + "_mirror_acr_y.jpg")
+            # lbl_name_y = Path(lbl_name_root + "_mirror_acr_y.txt")
 
-            self.mirror_image_xy(img, save_path_images / img_name_xy)
-            self.process_text_file(lbl, save_path_labels / lbl_name_xy, 'xy')
+            # self.mirror_image_y(img, save_path_images / img_name_y)
+            # self.process_text_file(lbl, save_path_labels / lbl_name_y, 'y')
 
-            ############### grayscale ########
-            img_name_bk = Path(img_name_root + "_black_white.jpg")
-            lbl_name_bk = Path(lbl_name_root + "_black_white.txt")
 
-            self.grayscale_image(img, save_path_images / img_name_bk)
+            # ############### xy ###############
+            # img_name_xy = Path(img_name_root + "_mirror_acr_xy.jpg")
+            # lbl_name_xy = Path(lbl_name_root + "_mirror_acr_xy.txt")
 
-            shutil.copy(lbl, save_path_labels / lbl_name_bk)
+            # self.mirror_image_xy(img, save_path_images / img_name_xy)
+            # self.process_text_file(lbl, save_path_labels / lbl_name_xy, 'xy')
 
-            ############### blur #############
-            img_name_bl = Path(img_name_root + "_blurred.jpg")
-            lbl_name_bl = Path(lbl_name_root + "_blurred.txt")
+            # ############### grayscale ########
+            # img_name_bk = Path(img_name_root + "_black_white.jpg")
+            # lbl_name_bk = Path(lbl_name_root + "_black_white.txt")
 
-            self.blur_image(img, save_path_images / img_name_bl)
-            shutil.copy(lbl, save_path_labels / lbl_name_bl)
+            # self.grayscale_image(img, save_path_images / img_name_bk)
+
+            # shutil.copy(lbl, save_path_labels / lbl_name_bk)
+
+            # ############### blur #############
+            # img_name_bl = Path(img_name_root + "_blurred.jpg")
+            # lbl_name_bl = Path(lbl_name_root + "_blurred.txt")
+
+            # self.blur_image(img, save_path_images / img_name_bl)
+            # shutil.copy(lbl, save_path_labels / lbl_name_bl)
+            
+            blur_prob = 0.15
+            if random.random() < blur_prob:
+                img_name_bl = Path(img_name_root + "_blurred.jpg")
+                lbl_name_bl = Path(lbl_name_root + "_blurred.txt")
+                self.blur_image(img, save_path_images / img_name_bl)
+                shutil.copy(lbl, save_path_labels / lbl_name_bl)
 
 
 

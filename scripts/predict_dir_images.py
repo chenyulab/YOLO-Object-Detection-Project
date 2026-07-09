@@ -47,11 +47,12 @@ Description:
     deactivate
     ~~~~~~~~~~~~~~
 '''
-model_path = Path(r"C:\Users\multimaster\Documents\dark_objects_project\models\E7\weights\best.pt")
-frames_path = Path("M:\\experiment_351\\included\\__20240718_10115\\cam07_frames_p") # will be different
+# model_path = Path(r"C:\Users\multimaster\Documents\dark_objects_project\models\E7\weights\best.pt")
+model_path = Path(r"Z:\James\FullCVAT_Videos\basic.pt")
+frames_path = Path("M:\\experiment_310\\included\\__20251027_10106\\cam07_frames_p") # will be different
 
 agent = "child"
-output_root =  Path(r"C:\Users\multimaster\Documents\dark_objects_project\predictions\__20240718_10115_fork")
+output_root =  Path(r"M:\experiment_310\included\__20251027_10106\supporting_files")
 output_video_path = output_root.joinpath(f"bbox_video_{agent}")
 output_annot_path = output_root.joinpath(f"bbox_annotations_{agent}")
 

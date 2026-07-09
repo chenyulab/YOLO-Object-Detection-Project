@@ -21,7 +21,7 @@ subID="__20251208_10118"
 # __20251217_10131
 # subID="__20260331_10133"
 # subID="__20260324_10133"
-subList="Z:\James\YOLO310_JW\310_JW_6_30_Augmented\subPredictionList.txt"
+# subList="Z:\James\YOLO310_JW\310_JW_6_30_Augmented\subPredictionList.txt"
 
 ## PREDICTION ARGUMENTS  ##
 
