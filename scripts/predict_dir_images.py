@@ -48,7 +48,7 @@ Description:
     ~~~~~~~~~~~~~~
 '''
 # model_path = Path(r"C:\Users\multimaster\Documents\dark_objects_project\models\E7\weights\best.pt")
-model_path = Path(r"Z:\James\FullCVAT_Videos\basic.pt")
+model_path = Path(r"C:\Users\multimaster\Documents\GitHub\YOLO-Object-Detection-Project\data\trained_models\310_7_16_2026\310_YOLO_7_16_2026.pt")
 frames_path = Path("M:\\experiment_310\\included\\__20251027_10106\\cam07_frames_p") # will be different
 
 agent = "child"
